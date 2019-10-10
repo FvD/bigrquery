@@ -210,6 +210,7 @@ bq_download_page_handle <- function(x, begin = 0L, end = begin + 1e4) {
   h <- curl::new_handle(url = url)
   curl::handle_setopt(h, useragent = bq_ua())
   curl::handle_setheaders(h, .list = headers)
+  curl::handle_setopt(h, http_version = 2)
 
   h
 }
